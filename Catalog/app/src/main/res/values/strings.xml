@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Catalog</string>
+    <string name="product_remove_button">Product remove button</string>
+</resources>
