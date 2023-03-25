@@ -23,8 +23,8 @@ class DataSource {
     private val catalog = mutableListOf<Catalog>()
 
     fun generate() {
-        videos()
-        advs()
+//        videos()
+//        advs()
         products()
         catalog
             .apply {

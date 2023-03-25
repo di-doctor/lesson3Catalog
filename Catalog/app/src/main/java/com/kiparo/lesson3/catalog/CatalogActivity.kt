@@ -2,6 +2,8 @@ package com.kiparo.lesson3.catalog
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.kiparo.lesson2.R
 import com.kiparo.lesson2.databinding.ActivityCatalogBinding
 import com.kiparo.lesson3.catalog.data.DataSource
 
@@ -16,6 +18,19 @@ class CatalogActivity : AppCompatActivity() {
 
         dataSource.generate()
 
-        //TODO Implement RecyclerView Adapter
+        val adapter = CatalogAdapter(productRemoveListener = {
+
+        })
+        adapter.items = dataSource.getData()
+
+        binding.catalogRecyclerView.adapter = adapter
+        binding.catalogRecyclerView.layoutManager = LinearLayoutManager(this)
+        binding.catalogRecyclerView.addItemDecoration(
+            SpaceDecoration(
+                resources.getDimensionPixelSize(
+                    R.dimen.padding_default
+                )
+            )
+        )
     }
 }
