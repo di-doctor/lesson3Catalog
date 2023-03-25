@@ -5,6 +5,6 @@ data class Product(
     val title: String,
     val price: String,
     val imageUrl: String
-) : Catalog {
+) : CatalogItem {
     override fun id() = id
 }

@@ -6,6 +6,6 @@ data class Advertisement(
     val description: String,
     val imageUrl: String
 ) :
-    Catalog {
+    CatalogItem {
     override fun id() = id
 }

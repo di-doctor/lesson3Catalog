@@ -1,5 +1,5 @@
 package com.kiparo.lesson3.catalog.model
 
-interface Catalog {
+interface CatalogItem {
     fun id() : Any
 }

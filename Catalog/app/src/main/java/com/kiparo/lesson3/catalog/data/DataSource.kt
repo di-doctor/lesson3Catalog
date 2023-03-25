@@ -1,7 +1,7 @@
 package com.kiparo.lesson3.catalog.data
 
 import com.kiparo.lesson3.catalog.model.Advertisement
-import com.kiparo.lesson3.catalog.model.Catalog
+import com.kiparo.lesson3.catalog.model.CatalogItem
 import com.kiparo.lesson3.catalog.model.Product
 import com.kiparo.lesson3.catalog.model.Video
 import net.datafaker.Faker
@@ -14,19 +14,19 @@ private const val IMAGE_URL_VIDEO = "https://picsum.photos/id/%d/500/300"
 
 class DataSource {
 
-    lateinit var observer: (items: List<Catalog>) -> Unit
+    lateinit var observer: (items: List<CatalogItem>) -> Unit
 
     private val faker = Faker()
     private val advs = mutableListOf<Advertisement>()
     private val videos = mutableListOf<Video>()
     private val products = mutableListOf<Product>()
-    private val catalog = mutableListOf<Catalog>()
+    private val catalogItem = mutableListOf<CatalogItem>()
 
     fun generate() {
-//        videos()
-//        advs()
+        videos()
+        advs()
         products()
-        catalog
+        catalogItem
             .apply {
                 this.addAll(advs)
                 this.addAll(videos)
@@ -36,9 +36,9 @@ class DataSource {
             }
     }
 
-    fun getData(): List<Catalog> {
-        return mutableListOf<Catalog>().apply {
-            this.addAll(catalog)
+    fun getData(): List<CatalogItem> {
+        return mutableListOf<CatalogItem>().apply {
+            this.addAll(catalogItem)
         }
     }
 
@@ -52,17 +52,17 @@ class DataSource {
 
     fun generateNext(video: Video) {
         val index = videos.indexOf(video)
-        val catalogIndex = catalog.indexOf(video)
+        val catalogIndex = catalogItem.indexOf(video)
         val id = generateId(videos)
         val newVideo = createVideo(id + 1)
         videos.add(index + 1, newVideo)
-        catalog.add(catalogIndex + 1, newVideo)
+        catalogItem.add(catalogIndex + 1, newVideo)
         observer(getData())
     }
 
     fun delete(product: Product) {
         products.remove(product)
-        catalog.remove(product)
+        catalogItem.remove(product)
         observer(getData())
     }
 

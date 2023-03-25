@@ -18,9 +18,18 @@ class CatalogActivity : AppCompatActivity() {
 
         dataSource.generate()
 
-        val adapter = CatalogAdapter(productRemoveListener = {
+        val adapter = CatalogAdapter(
+            productRemoveListener = { product ->
+                dataSource.delete(product)
+            },
+            generateNextVideoListener = { video ->
+                dataSource.generateNext(video)
+            })
 
-        })
+        dataSource.observer = { catalogItems ->
+            adapter.items = catalogItems
+        }
+
         adapter.items = dataSource.getData()
 
         binding.catalogRecyclerView.adapter = adapter

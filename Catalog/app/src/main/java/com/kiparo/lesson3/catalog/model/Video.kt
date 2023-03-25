@@ -5,6 +5,6 @@ data class Video(
     val title: String,
     val description: String,
     val videoUri: String
- ) : Catalog {
+ ) : CatalogItem {
     override fun id() = id
 }
