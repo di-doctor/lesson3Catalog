@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">PlaybackService</string>
+    <string name="service_description">Simple service description</string>
+    <string name="service_playback_description">Playback service description</string>
+    <string name="notification_title">Example Notification title</string>
+    <string name="notification_message">Example message from the example app</string>
+    <string name="ticker_text">This is a notification example for the example application</string>
+    <string name="channel_name">Simple Service app channel</string>
+    <string name="channel_description">Simple Service channel description</string>
+    <string name="play">play</string>
+    <string name="pause">pause</string>
+    <string name="stop">stop</string>
+    <string name="title_activity_flags">FlagsActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+</resources>
